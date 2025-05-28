@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 local servers = {
   "html",
   "cssls",
-  "tsserver",
+  "ts-ls",
 }
 vim.lsp.enable(servers)
 

@@ -26,16 +26,25 @@ return {
   },
   {
     "williamboman/mason.nvim",
+    lazy = false,
+    config = function()
+      require("mason").setup()
+    end,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+    dependencies = {
+      "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
+    },
     opts = {
       ensure_installed = {
-        "lua-language-server",
-        "stylua",
-        "html-lsp",
-        "css-lsp",
-        "prettier",
-        "eslint-lsp",
-        "js-debug-adapter",
-        "typescript-language-server",
+        "ts_ls",
+        "cssls",
+        "html",
+        "lua_ls",
+        "rust_analyzer",
       },
     },
   },
