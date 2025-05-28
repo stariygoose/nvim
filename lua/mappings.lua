@@ -5,6 +5,7 @@ local map = vim.keymap.set
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save" })
+
 map("n", "<leader>cx", function()
   require("nvchad.tabufline").closeAllBufs()
 end, { desc = "Close All Buffers" })
@@ -14,12 +15,9 @@ map("n", "\\", "<cmd>:vsplit <CR>", { desc = "Vertical Split" })
 
 -- Trouble
 
-map("n", "<leader>tx", "<cmd>TroubleToggle<CR>", { desc = "Open Trouble" })
-map("n", "<leader>tw", "<cmd>TroubleToggle workspace_diagnostics<CR>", { desc = "Open Workspace Trouble" })
-map("n", "<leader>td", "<cmd>TroubleToggle document_diagnostics<CR>", { desc = "Open Document Trouble" })
-map("n", "<leader>tq", "<cmd>TroubleToggle quickfix<CR>", { desc = "Open Quickfix" })
-map("n", "<leader>tl", "<cmd>TroubleToggle loclist<CR>", { desc = "Open Location List" })
-map("n", "<leader>tt", "<cmd>TodoTrouble<CR>", { desc = "Open Todo Trouble" })
+map("n", "<leader>tt", "<cmd>Trouble<CR>", { desc = "Open Trouble" })
+map("n", "<leader>td", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnostics" })
+map("n", "<leader>tb", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostic" })
 
 -- Debug
 map("n", "<leader>du", function()

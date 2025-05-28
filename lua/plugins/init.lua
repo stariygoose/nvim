@@ -5,6 +5,13 @@ return {
     opts = require "configs.conform",
   },
 
+  {
+    "nvim-tree/nvim-tree.lua",
+    lazy = false,
+    config = function()
+      require("configs.nvim-tree").setup()
+    end,
+  },
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
@@ -70,6 +77,8 @@ return {
   {
     "folke/trouble.nvim",
     lazy = false,
+    cmd = "Trouble",
+    opts = {},
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
   {
