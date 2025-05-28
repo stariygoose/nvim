@@ -4,7 +4,6 @@ return {
     event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
-
   {
     "nvim-tree/nvim-tree.lua",
     lazy = false,
@@ -45,6 +44,19 @@ return {
         "html",
         "lua_ls",
         "rust_analyzer",
+      },
+    },
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    lazy = false,
+    opts = {
+      ensure_installed = {
+        "codelldb",
       },
     },
   },

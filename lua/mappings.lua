@@ -6,6 +6,8 @@ map("n", ";", ":", { desc = "CMD enter command mode" })
 map("n", "<leader>q", "<cmd>q<CR>", { desc = "Quit" })
 map("n", "<leader>w", "<cmd>w<CR>", { desc = "Save" })
 
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action" })
+
 map("n", "<leader>cx", function()
   require("nvchad.tabufline").closeAllBufs()
 end, { desc = "Close All Buffers" })
