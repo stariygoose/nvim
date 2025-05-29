@@ -45,19 +45,7 @@ return {
         "lua_ls",
         "rust_analyzer",
       },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
-    dependencies = {
-      "williamboman/mason.nvim",
-      "mfussenegger/nvim-dap",
-    },
-    lazy = false,
-    opts = {
-      ensure_installed = {
-        "codelldb",
-      },
+      automatic_installation = true,
     },
   },
   {
@@ -71,6 +59,7 @@ return {
         "css",
         "typescript",
         "javascript",
+        "rust",
       },
     },
   },
