@@ -22,18 +22,37 @@ map("n", "<leader>td", "<cmd>Trouble diagnostics toggle<CR>", { desc = "Diagnost
 map("n", "<leader>tb", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", { desc = "Buffer Diagnostic" })
 
 -- Debug
-map("n", "<leader>du", function()
-  require("dapui").toggle()
-end, { desc = "Toggle Debug UI" })
-map("n", "<leader>db", function()
-  require("dap").toggle_breakpoint()
-end, { desc = "Toggle Breakpoint" })
-map("n", "<leader>ds", function()
+map("n", "<F5>", function()
   require("dap").continue()
-end, { desc = "Start" })
-map("n", "<leader>dn", function()
+end, { desc = "Continue Debugging" })
+
+map("n", "<F6>", function()
+  require("dap").terminate()
+end, { desc = "Terminate Debugger" })
+
+map("n", "<F10>", function()
   require("dap").step_over()
 end, { desc = "Step Over" })
+
+map("n", "<F11>", function()
+  require("dap").step_into()
+end, { desc = "Step Into" })
+
+map("n", "<F12>", function()
+  require("dap").step_out()
+end, { desc = "Step Out" })
+
+map("n", "<F9>", function()
+  require("dap").toggle_breakpoint()
+end, { desc = "Toggle Breakpoint" })
+
+map("n", "<leader>dr", function()
+  require("dap").repl.open()
+end, { desc = "Open REPL" })
+
+map("n", "<leader>dl", function()
+  require("dap").run_last()
+end, { desc = "Run Last Debug" })
 
 -- Git
 map("n", "<leader>gl", ":Flog<CR>", { desc = "Git Log" })

@@ -31,6 +31,11 @@ return {
     end,
   },
   {
+    "mrcjkb/rustaceanvim",
+    version = "^6", -- Recommended
+    lazy = false, -- This plugin is already lazy
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     dependencies = {
@@ -43,10 +48,37 @@ return {
         "cssls",
         "html",
         "lua_ls",
-        "rust_analyzer",
       },
       automatic_installation = true,
     },
+  },
+  {
+    "rcarriga/nvim-dap",
+    lazy = false,
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    lazy = false,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    lazy = false,
+    dependencies = {
+      "mfussenegger/nvim-dap",
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require("dapui").setup()
+
+      local dap, dapui = require "dap", require "dapui"
+      dap.listeners.before.launch.dapui_config = function()
+        dapui.open()
+      end
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -104,8 +136,12 @@ return {
     lazy = false,
   },
   { "tpope/vim-fugitive" },
-  { "rbong/vim-flog", dependencies = {
-    "tpope/vim-fugitive",
-  }, lazy = false },
+  {
+    "rbong/vim-flog",
+    dependencies = {
+      "tpope/vim-fugitive",
+    },
+    lazy = false,
+  },
   { "sindrets/diffview.nvim", lazy = false },
 }
