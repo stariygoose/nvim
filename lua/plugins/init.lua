@@ -63,6 +63,9 @@ return {
       "mfussenegger/nvim-dap",
     },
     lazy = false,
+    ensure_installed = {
+      "codelldb",
+    },
   },
   {
     "rcarriga/nvim-dap-ui",
